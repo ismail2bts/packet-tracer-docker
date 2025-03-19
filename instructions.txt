@@ -2,7 +2,7 @@ Instructions pour utiliser Cisco Packet Tracer 6.2 avec Docker
 
 Notes :
 - utilisez un compte root:
-  (commande : su) et apr�ès entrer votre mot de pass de root
+  (commande : su) et après entrer votre mot de pass de root
 - Assurez-vous d'avoir un environnement graphique (comme Ubuntu avec un bureau).
 
 
@@ -16,7 +16,8 @@ Notes :
 #3. Lancer Packet Tracer (fonctionne hors ligne après le téléchargement) :
    xhost +local:docker
 #apres execute ci-dessous
-   docker run -it --rm \
+
+docker run -it --rm \
 --network host \
 -e DISPLAY=$DISPLAY \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
