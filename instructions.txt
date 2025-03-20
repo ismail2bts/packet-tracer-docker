@@ -1,25 +1,21 @@
 Instructions pour utiliser Cisco Packet Tracer 6.2 avec Docker
+https://hub.docker.com/r/ismail2bts/packet-tracer
 
 Notes :
-- utilisez un compte root:
-  (commande : su) et après entrer votre mot de pass de root
-- Assurez-vous d'avoir un environnement graphique (comme Ubuntu avec un bureau).
+utilisez un compte root: (commande: su) et après entrer votre mot de pass de root
+Assurez-vous d'avoir un environnement graphique (comme Ubuntu avec un bureau).
 
+#1. Installer Docker (une seule fois) :#
+sudo snap install docker
+(Redémarrez votre terminal ou votre session après ça.)
 
-#1. Installer Docker (une seule fois) :
-   sudo snap install docker
-   (Redémarrez votre terminal ou votre session après ça.)
+#2. Télécharge l'image Packet Tracer (nécessite Internet, une seule fois) :#
+docker pull ismail2bts/packet-tracer
 
-#2. Téléchargel'image Packet Tracer (nécessite Internet, une seule fois) :
-   docker pull ismail2bts/packet-tracer:6.2
+#3. Lancer Packet Tracer (fonctionne hors ligne après le téléchargement) :#
+xhost +local:docker
+#apres exécuter ci-dessous
+docker run -it --network host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/packettracer_saves:/root/Documents/PacketTracer ismail2bts/packet-tracer:6.2
 
-#3. Lancer Packet Tracer (fonctionne hors ligne après le téléchargement) :
-   xhost +local:docker
-#apres execute ci-dessous
-
-docker run -it --rm \
---network host \
--e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix:/tmp/.X11-unix \
-ismail2bts/packet-tracer:6.2
+#4. Pour lancer application la prochaine fois il vous suffit de exécuter étape 3 seulement#
 
